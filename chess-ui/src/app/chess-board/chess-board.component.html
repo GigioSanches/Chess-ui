@@ -1,1 +1,8 @@
-<p>chess-board works!</p>
+<div>
+    <h2>Chess Board</h2>
+    <table>
+      <tr *ngFor="let row of board">
+        <td *ngFor="let cell of row">{{ cell?.name ?? '' }}</td> 
+    </tr>
+    </table>
+  </div>
