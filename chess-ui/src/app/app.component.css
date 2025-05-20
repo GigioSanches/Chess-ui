@@ -1,0 +1,12 @@
+/* Adiciona um cursor de ponteiro para indicar que o <td> é clicável */
+td {
+    cursor: pointer;
+    text-align: center; /* Centraliza o texto dentro do <td> */
+    padding: 10px; /* Adiciona espaçamento interno */
+    border: 1px solid #ccc; /* Adiciona uma borda para separar as células */
+  }
+  
+  /* Adiciona um efeito de hover para melhorar a experiência do usuário */
+  td:hover {
+    background-color: #f0f0f0; /* Altera a cor de fundo ao passar o mouse */
+  }

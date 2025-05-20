@@ -7,7 +7,7 @@ table {
     height: 50px;
     text-align: center;
     vertical-align: middle;
-    font-size: 14px; /* Ajuste o tamanho da fonte conforme necessário */
+    font-size: 14px;
   }
   
   td:nth-child(odd) {
@@ -15,13 +15,14 @@ table {
   }
   
   td:nth-child(even) {
-    background-color: #555;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
+    
   }
   
   tr:nth-child(odd) td:nth-child(even),
   tr:nth-child(even) td:nth-child(odd) {
     background-color: #333;
-    color: #fff;
+    color: #fdfdfd;
   }
   
