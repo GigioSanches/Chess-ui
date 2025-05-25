@@ -8,6 +8,8 @@ interface Cell {
   x: number;
   y: number;
 }
+
+
 @Component({
   selector: 'app-chess-board',
   standalone: true,
@@ -17,6 +19,10 @@ interface Cell {
 })
 export class ChessBoardComponent {
   board: Array<Array<Cell>> = []; 
+
+  currentPosition: Cell | null = null;
+  newPosition: Cell | null = null; 
+
 
   constructor(private http: HttpClient) {}
 
@@ -33,7 +39,7 @@ export class ChessBoardComponent {
   }
 
   ExibePosicao(cell: any): void {
-
+    
     const piece = {
       name: cell.name,
       color: cell.color,
@@ -41,10 +47,24 @@ export class ChessBoardComponent {
       y: cell.y
     }
 
+    if (!this.currentPosition) {
+      this.currentPosition = cell;
+    }
+    else {
+      this.newPosition = cell;
+      const move = {
+        currentPosition: this.currentPosition,
+        newPosition: this.newPosition
+      }
 
-    this.http.post('/api/ExibePosicao', piece).subscribe({
-      next: () => console.log('Objeto enviado ao backend:', piece),
-      error: (err) => console.error('Erro ao enviar objeto:', err)
-    });
+      this.currentPosition = null;
+      this.newPosition = null;
+
+      this.http.post('/api/ExibePosicao', move).subscribe({
+        next: () => console.log('Objeto enviado ao backend:', piece),
+        error: (err) => console.error('Erro ao enviar objeto:', err)
+      });
+    };
+
   }
 }
