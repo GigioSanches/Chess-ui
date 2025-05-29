@@ -2,7 +2,10 @@
     <h2>Chess Board</h2>
     <table>
       <tr *ngFor="let row of board">
-        <td *ngFor="let cell of row" (click)="ExibePosicao(cell)" >{{ cell?.name ?? '' }} </td> 
+        <td *ngFor="let cell of row" (click)="ExibePosicao(cell)">
+          <img *ngIf="getPieceImage(cell)" [src]="getPieceImage(cell)" [alt]="cell.name" width="40" height="40">
+          <span *ngIf="!getPieceImage(cell)">{{ cell?.name ?? '' }}</span>
+        </td>
       </tr>
     </table>
-  </div>
+</div>

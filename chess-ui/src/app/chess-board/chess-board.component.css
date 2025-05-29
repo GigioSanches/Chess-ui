@@ -25,4 +25,14 @@ table {
     background-color: #333;
     color: #fdfdfd;
   }
+
+  .container {
+   background: none;
+  }
+
+  img {
+   background-color: transparent;
+  }
+
+
   

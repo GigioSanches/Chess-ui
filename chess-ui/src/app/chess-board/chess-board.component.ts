@@ -38,6 +38,15 @@ export class ChessBoardComponent {
     });
   }
 
+  getPieceImage(cell: Cell): string | null {
+  //if (cell.name === "Pawn" && cell.color === 'White') {
+  if (cell.name === ' ') {
+      return null; // No piece in this cell
+  }
+   else
+      return `assets/pieces/${cell.color}_${cell.name}.png`;
+  }
+
   ExibePosicao(cell: any): void {
     
     const piece = {
@@ -65,6 +74,5 @@ export class ChessBoardComponent {
         error: (err) => console.error('Erro ao enviar objeto:', err)
       });
     };
-
   }
 }
