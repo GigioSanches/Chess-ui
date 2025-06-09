@@ -1,5 +1,6 @@
-<div>
-    <h2>Chess Board</h2>
+<div class="main-container">
+  <div class="left-panel"> 
+    <h2>Chess</h2>
     <table>
       <tr *ngFor="let row of board">
         <td *ngFor="let cell of row" (click)="ExibePosicao(cell)">
@@ -8,4 +9,24 @@
         </td>
       </tr>
     </table>
-</div>
+  </div>
+  <div class = "divider" ></div>
+  <div class="right-panel">
+    <button (click)="ResetBoard()">Reset Board</button>
+    <div>
+      <h3>White Pieces</h3>
+      <div class="captured-pieces">
+        <img *ngFor="let piece of capturedWhitePieces" [src]="getPieceImage(piece)" [alt]="piece.name" width="40" height="40">
+      </div>
+      <h3>Black Pieces</h3>
+      <div class="captured-pieces">
+        <img *ngFor="let piece of capturedBlackPieces" [src]="getPieceImage(piece)" [alt]="piece.name" width="40" height="40">
+      </div>
+    </div>
+
+    <label *ngIf="roundColor" [ngClass]="{
+      'white-move': roundColor === 'White to move',
+      'black-move': roundColor === 'Black to move'
+    }"> {{roundColor}}</label>
+
+  </div>

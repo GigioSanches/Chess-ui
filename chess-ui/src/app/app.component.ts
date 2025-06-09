@@ -7,11 +7,10 @@ import { routes } from './app-routing.module'
   standalone: true,
   imports: [RouterOutlet],
   template: `
-    <h1>{{ title }}</h1>
     <router-outlet></router-outlet> <!-- O componente ChessBoard será renderizado aqui -->
   `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'chess-ui';
+  title = 'Chess-ui';
 }
